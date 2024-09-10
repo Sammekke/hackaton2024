@@ -79,5 +79,8 @@ public class MainPageTest {
 
         mainPage.buttonContinue.click();
         Thread.sleep(10000000);
+
+        mainPage.buttonNumpad.click();
+        Thread.sleep(10000000);
     }
 }
