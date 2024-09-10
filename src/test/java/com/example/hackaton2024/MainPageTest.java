@@ -53,4 +53,11 @@ public class MainPageTest {
         Thread.sleep(1000);
     }
 
+    @Test
+    public void shouldClickGlobe() throws InterruptedException {
+        mainPage.buttonGoToTransmission.click();
+        Thread.sleep(20000);
+        mainPage.body.click();
+        Thread.sleep(10000);
+    }
 }

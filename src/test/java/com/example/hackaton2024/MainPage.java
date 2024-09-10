@@ -16,6 +16,7 @@ public class MainPage {
 
     public SelenideElement titleHackaton = $(By.tagName("h1"));
     public SelenideElement buttonGoToTransmission = $("#action-button");
+    public SelenideElement body = $(By.tagName("body"));
 
     // page information
     public SelenideElement inputName = $("#name");
