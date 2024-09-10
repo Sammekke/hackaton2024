@@ -60,4 +60,17 @@ public class MainPageTest {
         mainPage.body.click();
         Thread.sleep(10000);
     }
+    @Test
+    public void shouldClickOnYellowCard() throws InterruptedException {
+        open(mainPage.page_url + "collect-code");
+
+        mainPage.imgHerman.click();
+
+        String code = localStorage().getItem("code");
+        System.out.println(code);
+        Thread.sleep(1000);
+
+    }
+
+
 }

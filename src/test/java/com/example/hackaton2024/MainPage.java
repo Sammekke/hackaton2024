@@ -25,5 +25,8 @@ public class MainPage {
     public SelenideElement inputPlanet = $("#planet");
     public SelenideElement dataInput = $(By.className("typing"));
 
+    // page collect-code
+    public SelenideElement imgHerman = $(By.tagName("img"));
+
 
 }
