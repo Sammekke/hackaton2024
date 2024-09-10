@@ -1,13 +1,14 @@
 package com.example.hackaton2024;
+
 import com.codeborne.selenide.SelenideElement;
+import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$x;
 
-// page_url = https://www.jetbrains.com/
+
 public class MainPage {
-  public SelenideElement seeDeveloperToolsButton = $x("//*[@data-test-marker='Developer Tools']");
-  public SelenideElement findYourToolsButton = $x("//*[@data-test='suggestion-action']");
-  public SelenideElement toolsMenu = $x("//div[@data-test='main-menu-item' and @data-test-marker = 'Developer Tools']");
-  public SelenideElement searchButton = $("[data-test='site-header-search-action']");
+    String page_url = "https://hackthefuture.bignited.be/";
+
+    public SelenideElement titleHackaton = $(By.tagName("h1"));
+    public SelenideElement buttonGoToTransmission = $("#action-button");
 }
