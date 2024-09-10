@@ -36,7 +36,21 @@ public class MainPageTest {
     }
 
     @Test
-    public void shouldClickGlobe() {
-        mainPage.buttonGoToTransmission.click();
+    public void shouldInputCorrectValues() throws InterruptedException {
+        open(mainPage.page_url + "information");
+
+        mainPage.inputName.type(mainPage.name);
+        mainPage.inputAge.type(mainPage.age);
+        mainPage.selectSpecies.selectOption(mainPage.species);
+        mainPage.inputPlanet.type(mainPage.planet);
+        mainPage.inputPlanet.pressEnter();
+
+        Thread.sleep(1000);
+        mainPage.dataInput.shouldHave(text(mainPage.name));
+        mainPage.dataInput.shouldHave(text(mainPage.age));
+        mainPage.dataInput.shouldHave(text(mainPage.species));
+        mainPage.dataInput.shouldHave(text(mainPage.planet));
+        Thread.sleep(1000);
     }
+
 }
