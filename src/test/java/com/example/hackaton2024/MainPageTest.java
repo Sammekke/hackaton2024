@@ -1,10 +1,13 @@
 package com.example.hackaton2024;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.WebDriverRunner;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.*;
+import org.openqa.selenium.interactions.Actions;
 
 import static com.codeborne.selenide.Condition.*;
 
@@ -64,13 +67,11 @@ public class MainPageTest {
     public void shouldClickOnYellowCard() throws InterruptedException {
         open(mainPage.page_url + "collect-code");
 
-        mainPage.imgHerman.click();
+        WebDriver driver = WebDriverRunner.getWebDriver();
+        new Actions(driver).moveToElement(mainPage.imgHerman, 24, 78).click().build().perform();
 
         String code = localStorage().getItem("code");
         System.out.println(code);
-        Thread.sleep(1000);
-
+        Thread.sleep(10000);
     }
-
-
 }
