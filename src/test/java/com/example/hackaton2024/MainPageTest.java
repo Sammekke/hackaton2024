@@ -38,45 +38,44 @@ public class MainPageTest {
     public void fullTestRun() throws InterruptedException {
         mainPage.titleHackaton.shouldHave(text("Hackathon \n 2024"));
         mainPage.buttonGoToTransmission.click();
-
         Thread.sleep(20000);
+        // wereld bol klikken
         mainPage.body.click();
-        Thread.sleep(5000);
+        mainPage.continueButton.should(Condition.visible, Duration.ofSeconds(50));
         mainPage.continueButton.click();
-        Thread.sleep(3000);
 
+        // naam en dergelijke invullen
+        mainPage.inputName.should(Condition.visible, Duration.ofSeconds(50));
         mainPage.inputName.type(mainPage.name);
         mainPage.inputAge.type(mainPage.age);
         mainPage.selectSpecies.selectOption(mainPage.species);
         mainPage.inputPlanet.type(mainPage.planet);
         mainPage.inputPlanet.pressEnter();
 
-        Thread.sleep(1000);
+        mainPage.dataInput.should(Condition.visible, Duration.ofSeconds(50));
         mainPage.dataInput.shouldHave(text(mainPage.name));
         mainPage.dataInput.shouldHave(text(mainPage.age));
         mainPage.dataInput.shouldHave(text(mainPage.species));
         mainPage.dataInput.shouldHave(text(mainPage.planet));
-        Thread.sleep(6000);
+        mainPage.continueButton.should(Condition.visible, Duration.ofSeconds(50));
         mainPage.continueButton.click();
 
-        Thread.sleep(3000);
+        mainPage.imgHerman.should(Condition.visible, Duration.ofSeconds(50));
 
         WebDriver driver = WebDriverRunner.getWebDriver();
         new Actions(driver).moveToElement(mainPage.imgHerman, 24, 78).click().build().perform();
 
         String code = localStorage().getItem("code");
         System.out.println(code);
-        Thread.sleep(1000);
-
         mainPage.body.click();
         mainPage.buttonContinue.click();
-        Thread.sleep(5000);
+        mainPage.continueButton.should(Condition.visible, Duration.ofSeconds(50));
         mainPage.continueButton.click();
         mainPage.buttonNumpad.should(Condition.visible, Duration.ofSeconds(50));
         mainPage.buttonNumpad.click();
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         char[] codeArray = code.toCharArray();
-        for (int i = 0; i < codeArray.length; i++) {
+        for (int i = 0; i <codeArray.length ; i++) {
             mainPage.getDigitKnop(String.valueOf(codeArray[i])).click();
         }
         mainPage.enterButton.click();
