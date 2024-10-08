@@ -33,7 +33,11 @@ public class MainPageTest {
         mainPage.titleHackaton.shouldHave(text("Hackathon \n 2024"));
         mainPage.buttonGoToTransmission.click();
 
-        open(mainPage.page_url + "information");
+        Thread.sleep(20000);
+        mainPage.body.click();
+        Thread.sleep(5000);
+        mainPage.continueButton.click();
+        Thread.sleep(3000);
 
         mainPage.inputName.type(mainPage.name);
         mainPage.inputAge.type(mainPage.age);
@@ -49,16 +53,17 @@ public class MainPageTest {
         Thread.sleep(6000);
         mainPage.continueButton.click();
 
-        mainPage.buttonGoToTransmission.click();
-        Thread.sleep(20000);
-        mainPage.body.click();
-        Thread.sleep(10000);
+        Thread.sleep(3000);
 
         WebDriver driver = WebDriverRunner.getWebDriver();
         new Actions(driver).moveToElement(mainPage.imgHerman, 24, 78).click().build().perform();
 
         String code = localStorage().getItem("code");
         System.out.println(code);
+        Thread.sleep(1000);
+
+        mainPage.body.click();
+        mainPage.continueButton.click();
         Thread.sleep(10000);
     }
 
