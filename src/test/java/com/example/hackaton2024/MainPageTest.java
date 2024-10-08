@@ -1,5 +1,8 @@
 package com.example.hackaton2024;
 
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.WebDriverRunner;
 import com.codeborne.selenide.*;
 import com.sun.tools.javac.Main;
 import org.openqa.selenium.Keys;
@@ -60,8 +63,7 @@ public class MainPageTest {
 
         mainPage.imgHerman.should(Condition.visible, Duration.ofSeconds(50));
 
-        WebDriver driver = WebDriverRunner.getWebDriver();
-        new Actions(driver).moveToElement(mainPage.imgHerman, 24, 78).click().build().perform();
+        Selenide.actions().moveToElement(mainPage.imgHerman,24,78).click().build().perform();
 
         String code = localStorage().getItem("code");
         System.out.println(code);
@@ -77,11 +79,11 @@ public class MainPageTest {
             mainPage.getDigitKnop(String.valueOf(codeArray[i])).click();
         }
         mainPage.enterButton.click();
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         mainPage.body.sendKeys(Keys.ARROW_UP);
-        Thread.sleep(1000);
+        mainPage.continueButton.should(Condition.visible, Duration.ofSeconds(50));
         mainPage.continueButton.click();
-        Thread.sleep(1000);
+        mainPage.inputFieldName.should(Condition.visible, Duration.ofSeconds(50));
         mainPage.inputFieldName.sendKeys(mainPage.name + Keys.ENTER);
         mainPage.yesLieButton.click();
         Thread.sleep(100000);
