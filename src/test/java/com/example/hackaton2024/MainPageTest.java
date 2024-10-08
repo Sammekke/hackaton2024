@@ -47,10 +47,10 @@ public class MainPageTest {
 
         // naam en dergelijke invullen
         mainPage.inputName.should(Condition.visible, Duration.ofSeconds(50));
-        mainPage.inputName.type(mainPage.name);
-        mainPage.inputAge.type(mainPage.age);
+        mainPage.inputName.sendKeys(mainPage.name);
+        mainPage.inputAge.sendKeys(mainPage.age);
         mainPage.selectSpecies.selectOption(mainPage.species);
-        mainPage.inputPlanet.type(mainPage.planet);
+        mainPage.inputPlanet.sendKeys(mainPage.planet);
         mainPage.inputPlanet.pressEnter();
 
         mainPage.dataInput.should(Condition.visible, Duration.ofSeconds(50));
@@ -63,7 +63,7 @@ public class MainPageTest {
 
         mainPage.imgHerman.should(Condition.visible, Duration.ofSeconds(50));
 
-        Selenide.actions().moveToElement(mainPage.imgHerman,24,78).click().build().perform();
+        Selenide.actions().moveToElement(mainPage.imgHerman, 24, 78).click().build().perform();
 
         String code = localStorage().getItem("code");
         System.out.println(code);
@@ -75,7 +75,7 @@ public class MainPageTest {
         mainPage.buttonNumpad.click();
         Thread.sleep(2000);
         char[] codeArray = code.toCharArray();
-        for (int i = 0; i <codeArray.length ; i++) {
+        for (int i = 0; i < codeArray.length; i++) {
             mainPage.getDigitKnop(String.valueOf(codeArray[i])).click();
         }
         mainPage.enterButton.click();
@@ -85,14 +85,21 @@ public class MainPageTest {
         mainPage.continueButton.click();
         mainPage.inputFieldName.should(Condition.visible, Duration.ofSeconds(50));
         mainPage.inputFieldName.sendKeys(mainPage.name + Keys.ENTER);
-        mainPage.yesLieButton.click();
-        Thread.sleep(100000);
+        //lie question is weg
+        Thread.sleep(1000);
         mainPage.inputFieldName.sendKeys(mainPage.planet + Keys.ENTER);
-        mainPage.yesHelpButton.click();
-        mainPage.yesHelpButton.click();
+        mainPage.yesHelpButton.pressEnter();
+        Thread.sleep(10000);
         mainPage.nextButton.click();
         mainPage.nextButton.click();
         Thread.sleep(10000);
+    }
+
+    private void offsetCalculationAndClickElement(SelenideElement element) {
+        int offsety = (element.getRect().height / 2) +24;
+        int offsetx = (element.getRect().width  / 2) +12;
+        System.out.println("height " + offsety + "width: " + offsetx);
+        element.click(ClickOptions.withOffset(offsety, offsetx));
     }
 
     @Test
