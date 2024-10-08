@@ -84,7 +84,7 @@ public class MainPageTest {
         Thread.sleep(1000);
         mainPage.inputFieldName.sendKeys(mainPage.name + Keys.ENTER);
         mainPage.yesLieButton.click();
-        Thread.sleep(1000);
+        Thread.sleep(100000);
         mainPage.inputFieldName.sendKeys(mainPage.planet + Keys.ENTER);
         mainPage.yesHelpButton.click();
         mainPage.yesHelpButton.click();

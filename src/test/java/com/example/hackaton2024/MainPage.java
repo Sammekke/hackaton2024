@@ -45,4 +45,5 @@ public class MainPage {
     public SelenideElement yesHelpButton = $(By.cssSelector(".buttons > :nth-child(1)"));
     public SelenideElement nextButton = $(By.cssSelector(".next > .ng-star-inserted"));
 
+
 }
