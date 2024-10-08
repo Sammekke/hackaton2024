@@ -17,6 +17,7 @@ public class MainPage {
     public SelenideElement titleHackaton = $(By.tagName("h1"));
     public SelenideElement buttonGoToTransmission = $("#action-button");
     public SelenideElement body = $(By.tagName("body"));
+    public SelenideElement button = $(By.tagName("button"));
 
     // page information
     public SelenideElement inputName = $("#name");
@@ -43,7 +44,19 @@ public class MainPage {
     public SelenideElement inputFieldName = $(By.id("inputField"));
     public SelenideElement yesLieButton = $(By.cssSelector("p > :nth-child(0)"));
     public SelenideElement yesHelpButton = $(By.cssSelector(".buttons > :nth-child(1)"));
-    public SelenideElement nextButton = $(By.cssSelector(".next > .ng-star-inserted"));
+    public SelenideElement scanButton = $(By.cssSelector(".scan-button"));
+    public SelenideElement floatingDink = $(By.cssSelector(".floating-cube"));
+    public SelenideElement currentdigits = $(By.cssSelector("#current-reading"));
+    public SelenideElement wanteddigits = $(By.cssSelector("#wanted-reading"));
 
+    public SelenideElement getUpKnop(int index) {
+        int newIndex = index +1;
+        return $(By.cssSelector(":nth-child("+newIndex+") > .container-up > .arrow > .material-symbols-outlined"));
+    }
+
+    public SelenideElement getDownKnop(int index) {
+        int newIndex = index +1;
+        return $(By.cssSelector(":nth-child("+newIndex+") > .down > .material-symbols-outlined"));
+    }
 
 }

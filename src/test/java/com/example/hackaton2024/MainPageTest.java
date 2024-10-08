@@ -13,6 +13,8 @@ import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.interactions.Actions;
 
+import java.awt.*;
+import java.awt.event.InputEvent;
 import java.sql.Array;
 import java.time.Duration;
 
@@ -89,15 +91,51 @@ public class MainPageTest {
         Thread.sleep(1000);
         mainPage.inputFieldName.sendKeys(mainPage.planet + Keys.ENTER);
         mainPage.yesHelpButton.pressEnter();
-        Thread.sleep(10000);
-        mainPage.nextButton.click();
-        mainPage.nextButton.click();
+        Thread.sleep(1000);
+        mainPage.yesHelpButton.pressEnter();
+        Thread.sleep(1000);
+        mainPage.button.pressEnter();
+        Thread.sleep(1000);
+        mainPage.button.pressEnter();
+        Thread.sleep(1000);
+        mainPage.button.pressEnter();
+        Thread.sleep(1000);
+        mainPage.yesHelpButton.pressEnter();
+        mainPage.continueButton.should(Condition.visible, Duration.ofSeconds(50));
+        mainPage.continueButton.click();
+        Thread.sleep(1000);
+        mainPage.floatingDink.click();
+        WebDriver driver = WebDriverRunner.getWebDriver();
+        Actions actions = new Actions(driver);
+        actions.clickAndHold(mainPage.scanButton).pause(7000).release().build().perform();
+        mainPage.continueButton.click();
+        Thread.sleep(1000);
+        String currentDigits = mainPage.currentdigits.getText();
+        String wantedDigits = mainPage.wanteddigits.getText();
+        char[] currentArray = currentDigits.toCharArray();
+        char[] wantedArray = wantedDigits.toCharArray();
+        for (int i = 0; i < currentArray.length; i++) {
+            int total = (int) currentArray[i] - (int) wantedArray[i];
+            if (total < 0) {
+                for (int j = 0; j < Math.abs(total); j++) {
+                    System.out.println("up");
+                    mainPage.getUpKnop(i).click();
+                }
+            }
+            if (total>0){
+                for (int j = 0; j < Math.abs(total); j++) {
+                    System.out.println("down");
+                    mainPage.getDownKnop(i).click();
+                }
+            }
+        }
+        mainPage.body.pressEnter();
         Thread.sleep(10000);
     }
 
     private void offsetCalculationAndClickElement(SelenideElement element) {
-        int offsety = (element.getRect().height / 2) +24;
-        int offsetx = (element.getRect().width  / 2) +12;
+        int offsety = (element.getRect().height / 2) + 24;
+        int offsetx = (element.getRect().width / 2) + 12;
         System.out.println("height " + offsety + "width: " + offsetx);
         element.click(ClickOptions.withOffset(offsety, offsetx));
     }
