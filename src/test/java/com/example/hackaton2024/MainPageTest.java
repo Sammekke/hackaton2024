@@ -3,6 +3,8 @@ package com.example.hackaton2024;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
+import com.sun.tools.javac.Main;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import com.codeborne.selenide.logevents.SelenideLogger;
@@ -74,10 +76,17 @@ public class MainPageTest {
         mainPage.buttonNumpad.click();
         Thread.sleep(1000);
         char[] codeArray = code.toCharArray();
-        for (int i = 0; i <codeArray.length ; i++) {
+        for (int i = 0; i < codeArray.length; i++) {
             mainPage.getDigitKnop(String.valueOf(codeArray[i])).click();
         }
         mainPage.enterButton.click();
+        Thread.sleep(1000);
+        mainPage.body.sendKeys(Keys.ARROW_UP);
+        Thread.sleep(1000);
+        mainPage.continueButton.click();
+        Thread.sleep(1000);
+        mainPage.inputFieldName.sendKeys("Herman" + Keys.ENTER);
+        mainPage.noLieButton.click();
         Thread.sleep(10000);
     }
 

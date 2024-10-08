@@ -40,5 +40,6 @@ public class MainPage {
     }
 
     public SelenideElement enterButton = $(By.id("enter"));
-
+    public SelenideElement inputFieldName = $(By.id("inputField"));
+    public SelenideElement noLieButton = $(By.id("p > :nth-child(1)"));
 }
