@@ -22,3 +22,14 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+/allure-results/3e7e5ddc-351d-4d48-b8a1-ad7b3aa7d93e-result.json
+/allure-results/5f1f7c37-9128-4fca-b85e-29e62fb186ad-container.json
+/allure-results/9ee889ec-9a62-4b54-be77-4faa1614cb5d-container.json
+/allure-results/9f721578-1eda-4d18-8b4c-193f587f206c-result.json
+/target/surefire-reports/2024-10-08T09-24-42_792-jvmRun1.dump
+/target/surefire-reports/2024-10-08T09-24-42_792-jvmRun1.dumpstream
+/allure-results/7909ae94-6a3c-43af-850f-04cf4b39117e-container.json
+/allure-results/91245803-275f-4cd3-8ff7-bb38f687c614-container.json
+/.idea/codeStyles/codeStyleConfig.xml
+/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst
+/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst
