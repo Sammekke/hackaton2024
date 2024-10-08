@@ -39,7 +39,7 @@ public class MainPageTest {
     public void fullTestRun() throws InterruptedException {
         mainPage.titleHackaton.shouldHave(text("Hackathon \n 2024"));
         mainPage.buttonGoToTransmission.click();
-        Thread.sleep(20000);
+        Thread.sleep(5000);
         // wereld bol klikken
         mainPage.body.click();
         mainPage.continueButton.should(Condition.visible, Duration.ofSeconds(50));
