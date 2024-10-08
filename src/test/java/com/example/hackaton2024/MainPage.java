@@ -29,6 +29,11 @@ public class MainPage {
 
     // page collect-code
     public SelenideElement imgHerman = $(By.tagName("img"));
+    public SelenideElement divCard = $(By.className("card"));
+
+    //page gate
+    public SelenideElement buttonContinue = $(By.className("ski-button"));
+    public SelenideElement buttonNumpad = $("numpad");
 
 
 }

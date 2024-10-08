@@ -112,6 +112,15 @@ public class MainPageTest {
 
         String code = localStorage().getItem("code");
         System.out.println(code);
-        Thread.sleep(10000);
+        Thread.sleep(2000);
+
+        mainPage.divCard.click();
+        Thread.sleep(2000);
+
+        mainPage.buttonContinue.click();
+        Thread.sleep(10000000);
+
+        mainPage.buttonNumpad.click();
+        Thread.sleep(10000000);
     }
 }
