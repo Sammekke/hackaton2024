@@ -29,6 +29,40 @@ public class MainPageTest {
     }
 
     @Test
+    public void fullTestRun() throws InterruptedException {
+        mainPage.titleHackaton.shouldHave(text("Hackathon \n 2024"));
+        mainPage.buttonGoToTransmission.click();
+
+        open(mainPage.page_url + "information");
+
+        mainPage.inputName.type(mainPage.name);
+        mainPage.inputAge.type(mainPage.age);
+        mainPage.selectSpecies.selectOption(mainPage.species);
+        mainPage.inputPlanet.type(mainPage.planet);
+        mainPage.inputPlanet.pressEnter();
+
+        Thread.sleep(1000);
+        mainPage.dataInput.shouldHave(text(mainPage.name));
+        mainPage.dataInput.shouldHave(text(mainPage.age));
+        mainPage.dataInput.shouldHave(text(mainPage.species));
+        mainPage.dataInput.shouldHave(text(mainPage.planet));
+        Thread.sleep(6000);
+        mainPage.continueButton.click();
+
+        mainPage.buttonGoToTransmission.click();
+        Thread.sleep(20000);
+        mainPage.body.click();
+        Thread.sleep(10000);
+
+        WebDriver driver = WebDriverRunner.getWebDriver();
+        new Actions(driver).moveToElement(mainPage.imgHerman, 24, 78).click().build().perform();
+
+        String code = localStorage().getItem("code");
+        System.out.println(code);
+        Thread.sleep(10000);
+    }
+
+    @Test
     public void shouldHaveCorrectTitle() {
         mainPage.titleHackaton.shouldHave(text("Hackathon \n 2024"));
     }
@@ -63,6 +97,7 @@ public class MainPageTest {
         mainPage.body.click();
         Thread.sleep(10000);
     }
+
     @Test
     public void shouldClickOnYellowCard() throws InterruptedException {
         open(mainPage.page_url + "collect-code");
