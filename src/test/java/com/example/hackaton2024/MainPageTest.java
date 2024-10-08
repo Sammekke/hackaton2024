@@ -63,6 +63,8 @@ public class MainPageTest {
         Thread.sleep(1000);
 
         mainPage.body.click();
+        mainPage.buttonContinue.click();
+        Thread.sleep(5000);
         mainPage.continueButton.click();
         Thread.sleep(10000);
     }
