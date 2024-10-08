@@ -1,5 +1,6 @@
 package com.example.hackaton2024;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
 import org.openqa.selenium.WebDriver;
@@ -8,6 +9,9 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.interactions.Actions;
+
+import java.sql.Array;
+import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.*;
 
@@ -66,6 +70,14 @@ public class MainPageTest {
         mainPage.buttonContinue.click();
         Thread.sleep(5000);
         mainPage.continueButton.click();
+        mainPage.buttonNumpad.should(Condition.visible, Duration.ofSeconds(50));
+        mainPage.buttonNumpad.click();
+        Thread.sleep(1000);
+        char[] codeArray = code.toCharArray();
+        for (int i = 0; i <codeArray.length ; i++) {
+            mainPage.getDigitKnop(String.valueOf(codeArray[i])).click();
+        }
+        mainPage.enterButton.click();
         Thread.sleep(10000);
     }
 

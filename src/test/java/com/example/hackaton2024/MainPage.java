@@ -3,7 +3,7 @@ package com.example.hackaton2024;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 
-import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.*;
 
 
 public class MainPage {
@@ -33,7 +33,12 @@ public class MainPage {
 
     //page gate
     public SelenideElement buttonContinue = $(By.className("ski-button"));
-    public SelenideElement buttonNumpad = $("numpad");
+    public SelenideElement buttonNumpad = $(By.id("numpad"));
 
+    public SelenideElement getDigitKnop(String digit) {
+        return $(By.id(digit));
+    }
+
+    public SelenideElement enterButton = $(By.id("enter"));
 
 }
