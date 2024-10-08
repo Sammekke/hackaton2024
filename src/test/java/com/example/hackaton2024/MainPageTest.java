@@ -1,8 +1,6 @@
 package com.example.hackaton2024;
 
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.WebDriverRunner;
+import com.codeborne.selenide.*;
 import com.sun.tools.javac.Main;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -84,8 +82,14 @@ public class MainPageTest {
         Thread.sleep(1000);
         mainPage.continueButton.click();
         Thread.sleep(1000);
-        mainPage.inputFieldName.sendKeys("Herman" + Keys.ENTER);
-        mainPage.noLieButton.click();
+        mainPage.inputFieldName.sendKeys(mainPage.name + Keys.ENTER);
+        mainPage.yesLieButton.click();
+        Thread.sleep(1000);
+        mainPage.inputFieldName.sendKeys(mainPage.planet + Keys.ENTER);
+        mainPage.yesHelpButton.click();
+        mainPage.yesHelpButton.click();
+        mainPage.nextButton.click();
+        mainPage.nextButton.click();
         Thread.sleep(10000);
     }
 

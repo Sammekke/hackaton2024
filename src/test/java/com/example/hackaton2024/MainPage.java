@@ -41,5 +41,8 @@ public class MainPage {
 
     public SelenideElement enterButton = $(By.id("enter"));
     public SelenideElement inputFieldName = $(By.id("inputField"));
-    public SelenideElement noLieButton = $(By.id("p > :nth-child(1)"));
+    public SelenideElement yesLieButton = $(By.cssSelector("p > :nth-child(0)"));
+    public SelenideElement yesHelpButton = $(By.cssSelector(".buttons > :nth-child(1)"));
+    public SelenideElement nextButton = $(By.cssSelector(".next > .ng-star-inserted"));
+
 }
